@@ -69,3 +69,16 @@ SELECT COUNT(DISTINCT species_id) AS unique_species_count FROM sightings;
 
 -- Problem 3
 SELECT * FROM sightings WHERE location ILIKE '%Pass%';
+
+
+
+-- Problem 4
+SELECT rangers.name, COUNT(sightings.sighting_id) as total_sightings 
+FROM rangers
+LEFT JOIN sightings ON rangers.ranger_id = sightings.ranger_id
+GROUP BY rangers.name
+
+
+
+
+
